@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writer’s Quote Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .container {
+      background: rgba(255,255,255,0.05);
+      padding: 25px 35px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      max-width: 700px;
+    }
+    .quote {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #f8fafc;
+      white-space: pre-line;
+    }
+    button {
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0ea5e9;
+    }
+    footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>✍️ Writer’s Quote Generator</h2>
+    <p class="quote" id="quote">Click below to inspire your writing!</p>
+    <button onclick="newQuote()">✨ New Quote</button>
+    <footer>Crafted with ❤️ by Abhi</footer>
+  </div>
+
+  <script>
+    const quotes = [
+      "Write what hurts, but also write what heals. Someone needs both your scars and your light.",
+      "A lyric is not just a rhyme, it’s a heartbeat hidden between words. Keep writing, someone is listening.",
+      "Don’t fear small sentences. Even three words can change a life: I forgive you.",
+      "Every word you write is a seed. Some grow today, some grow years later — plant anyway.",
+      "Perfection kills creativity. Let your pen bleed freely; the world needs raw honesty, not polished silence.",
+      "Your pain doesn’t define you — but your ability to turn it into art does.",
+      "Writers are time-travelers. Your words today will speak to someone decades from now.",
+      "A blank page isn’t empty; it’s just waiting for you to breathe into it.",
+      "Write for the one person who understands you, not the million who judge you.",
+      "Even if you think nobody reads your words, remember: you read them first, and you matter.",
+      "A poem is not written, it’s felt. The pen is only the translator of your soul.",
+      "The world doesn’t need another perfect story; it needs your imperfect truth.",
+      "Lyrics are just conversations that learned how to sing.",
+      "Every heartbreak, every silence, every tear — they’re all ink waiting for your paper.",
+      "Don’t compare your chapter 1 with someone else’s chapter 20. Keep writing.",
+      "One sentence can hold more power than an entire book, if it comes from the heart.",
+      "Writing is proof you existed. Long after you’re gone, your words will stay alive.",
+      "Even unfinished poems whisper something. Don’t throw them away.",
+      "You are not just writing words; you are leaving footprints of your soul.",
+      "When inspiration doesn’t come, write anyway. The act of writing creates its own muse.",
+      "Not every writer gets famous, but every writer touches someone unseen.",
+      "Ink remembers what the heart tries to forget. Keep writing, it’s therapy disguised as art.",
+      "Your small lines today may become someone’s favorite verse tomorrow.",
+      "Writing isn’t about big words; it’s about big feelings in simple words.",
+      "The best stories are the ones you were afraid to write. Start there.",
+      "Even silence has a voice — learn to write it down.",
+      "A lyricist is a thief of emotions — borrowing from life and giving it back as music.",
+      "Don’t wait for the perfect time to write. The perfect time is when you feel something.",
+      "Your notebook is your safest friend — it never interrupts, it just listens.",
+      "The truest audience is yourself. If your writing heals you, it will heal someone else too."
+    ];
+
+    let usedQuotes = [];
+
+    function newQuote() {
+      if (usedQuotes.length === quotes.length) {
+        usedQuotes = []; // reset once all are shown
+      }
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * quotes.length);
+      } while (usedQuotes.includes(randomIndex));
+
+      usedQuotes.push(randomIndex);
+      document.getElementById("quote").innerText = quotes[randomIndex];
+    }
+  </script>
+
+</body>
+</html>
