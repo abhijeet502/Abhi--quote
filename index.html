@@ -6,9 +6,9 @@
   <title>Writer’s Quote Generator</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fce7f3, #fbcfe8, #f9a8d4);
+      color: #3b0a45;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -16,48 +16,88 @@
       height: 100vh;
       margin: 0;
       text-align: center;
+      overflow: hidden;
     }
+
     .container {
-      background: rgba(255,255,255,0.05);
-      padding: 25px 35px;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      max-width: 700px;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 35px 45px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
+      max-width: 720px;
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1s ease;
     }
+
+    h2 {
+      color: #831843;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
     .quote {
       font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      color: #f8fafc;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      color: #4a044e;
+      font-weight: 500;
       white-space: pre-line;
     }
+
     button {
-      background: #38bdf8;
-      color: #0f172a;
+      background: linear-gradient(90deg, #ec4899, #f472b6, #fb7185);
+      color: white;
       font-weight: bold;
-      padding: 10px 20px;
+      padding: 12px 26px;
       border: none;
-      border-radius: 12px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: 0.3s;
+      font-size: 1.1rem;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 20px rgba(236, 72, 153, 0.5);
+      position: relative;
+      overflow: hidden;
     }
+
     button:hover {
-      background: #0ea5e9;
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(236, 72, 153, 0.7);
     }
+
+    button::after {
+      content: "✨";
+      position: absolute;
+      right: 12px;
+      top: 8px;
+      font-size: 1.3rem;
+      animation: sparkle 1.5s infinite ease-in-out;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.3) rotate(15deg); }
+    }
+
     footer {
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 0.9rem;
-      color: #94a3b8;
+      color: #6b0e4e;
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h2>✍️ Writer’s Quote Generator</h2>
-    <p class="quote" id="quote">Click below to inspire your writing!</p>
-    <button onclick="newQuote()">✨ New Quote</button>
-    <footer>Crafted with ❤️ by Abhi</footer>
+    <h2>💖 Writer’s Quote Generator</h2>
+    <p class="quote" id="quote">Click below to feel inspired ✨</p>
+    <button onclick="newQuote()">Inspire Me</button>
+    <footer>Crafted with 💖 by Abhi</footer>
   </div>
 
   <script>
